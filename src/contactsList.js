@@ -30,7 +30,7 @@ class ContactsList extends Component {
         return (
             <div className = "contacts">
                 {getContacts()}
-                <Contact className = "contact" name = "{props.number}"/>
+                <Contact className = "contact" name = "Новый Контакт"/>
             </div>
         );
     }

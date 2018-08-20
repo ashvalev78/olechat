@@ -5,10 +5,12 @@ import React, { Component } from 'react';
 class Сontact extends Component {
     render () {
         return (
-            <div className = "contact">
-                <img className = "contact__avatar"/>
-                <div className = "contact__name">{this.props.name} {this.props.surname}</div>
-            </div>
+            <a className = "contact" href="#">
+                <div className = 'contact__wrapper'>
+                    <img className = "contact__avatar" src = {this.props.img} />
+                    <div className = "contact__name">{this.props.name} {this.props.surname}</div>
+                </div>
+            </a>
         );
     }
 } 

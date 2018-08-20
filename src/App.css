@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+@import url(https://fonts.googleapis.com/css?family=Merriweather);
 
 .App {
   text-align: center;
@@ -7,7 +8,8 @@
 .header {
   width: 100%;
   height: 7.5rem;
-  background: linear-gradient(180deg, #009933, #66cc66);
+  /* background: linear-gradient(180deg, #009933, #66cc66); */
+  background: #006699;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,13 +29,14 @@
 }
 
 .contacts, .threads {
-  background: #cccccc;
+  background: #E1E7F3;
   height: calc(100vh - 7.5rem);
 }
 .contacts {
   display: flex;
   flex-flow: column;
   width: 31.25rem;
+  border-right: 1px solid #006699;
 }
 
 .threads {
@@ -43,4 +46,34 @@
 .chat {
   width: calc(100% - 21.875rem - 31.25rem);
   height: calc(100vh - 7.5rem);
+}
+
+.contact {
+  font-family: 'Merriweather', serif;
+  display: flex;
+  align-items: center;
+  height: 3.125rem;
+  border: 1px solid #006699;
+}
+
+.contact__wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 10rem;
+}
+
+.contact__name {
+  color: #006699;
+  margin-left: 1rem;
+}
+
+.contact:hover {
+  background-color: #66cc66;
+  border: 1px solid #389938;
+}
+
+.contact__avatar {
+  width: 2rem;
+  height: 2rem;
+  background: red;
 }
