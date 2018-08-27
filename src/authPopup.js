@@ -5,7 +5,7 @@ class AuthPopup extends Component {
         super(props);
 
         this.initialState = {
-            visibility: false
+            visibility: true
         };
 
         this.state = this.initialState;
@@ -24,7 +24,7 @@ class AuthPopup extends Component {
     }
 
     closePopup() {
-        this.state.setState({
+        this.setState({
             visibility: false
         });
     }
@@ -40,11 +40,10 @@ class AuthPopup extends Component {
                         <div className = "popup-helper">Password</div>
                         <input className = "popup__password" placeholder = "Password" type = 'password'/>
                     </form>
-                    <a onCilck = {this.closePopup} className = "popup-close" href = "#"></a>
+                    <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
                 </div>
             );
         } else {
-            console.log('fuck');
             return(
                 <div></div>
             );

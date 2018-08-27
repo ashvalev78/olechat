@@ -26,7 +26,6 @@ class App extends Component {
               <GroupList />
             </div>
           </div>
-          <AuthPopup />
         </div>
       </div>
     );

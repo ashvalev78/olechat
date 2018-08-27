@@ -12,17 +12,34 @@ class Authorization extends Component {
         }
 
         this.state = this.initialState;
+        this.exit = this.exit.bind(this);
+        this.authCheck = this.authCheck.bind(this);
+    }
+
+    authCheck() {
+        this.setState({
+            auth: true
+        })
+    }
+
+    exit() {
+        this.setState({
+            auth: false
+        });
     }
 
     render() {
 
         if (!this.state.auth) {
             return(
-                <a className = "auth no-auth" onClick = {console.log(AuthPopup.getState())} href = "#">Авторизация</a>
+                <a className = "auth no-auth" onClick = {this.authCheck} href = "#">Авторизация</a>
             );
         } else {
             return(
-                <a className = "auth auth-done" href = "#">Выход</a>
+                <div>
+                    <AuthPopup />
+                    <a className = "auth auth-done" onClick = {this.exit} href = "#">Выход</a>
+                </div>
             )
         }
     }
