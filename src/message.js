@@ -4,14 +4,20 @@ class Message extends Component {
     constructor(props) {
         super(props);
 
-        this.initialState = {
-            isAnotherUser: false
-        };
+        this.changeTheme = this.changeTheme.bind(this);
+    }
+
+    changeTheme() {
+        let addedClass = "";
+        if(this.props.messageInfo.userId != '1') {
+            addedClass = "other_user-msg";
+        }
+        return addedClass;
     }
 
     render() {
         return(
-            <div className = "chat__message" >
+            <div className = {"chat__message" + " " + this.changeTheme()} >
                 <div className = "message__heading">
                     <img className = "sender__photo" alt = "" />
                     <div className = "sender__name">

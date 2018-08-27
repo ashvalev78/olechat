@@ -38,7 +38,17 @@ class ContactsList extends Component {
         
 
         this.state = this.initialState;
+        this.addContact = this.addContact.bind(this);
         this.addContactClick = this.addContactClick.bind(this);
+    }
+
+    addContact() {
+        let length = this.state.contacts.length;
+        let newContact = {
+            id: length,
+            name: "New",
+            surname: "Contact"
+        };
     }
 
     addContactClick(e) {

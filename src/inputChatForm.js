@@ -5,6 +5,7 @@ class InputChatForm extends Component {
     constructor(props) {
         super(props);
         this.createNewMessage = this.createNewMessage.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
     
     createNewMessage() {
@@ -24,10 +25,17 @@ class InputChatForm extends Component {
         }
     }
 
+    handleKeyPress(e) {
+        if(e.key == "Enter") {
+            e.preventDefault();
+            this.createNewMessage();
+        }
+    }
+
     render() {
         return(
             <div className = "form">
-                <textarea className = "chat__input" />
+                <textarea className = "chat__input" onKeyPress = {this.handleKeyPress}/>
                 <a className = "share__button" href = "#">
                     <img className = "share__button-img" alt = ""/>
                 </a>
