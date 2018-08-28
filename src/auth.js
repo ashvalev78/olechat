@@ -37,7 +37,7 @@ class Authorization extends Component {
         } else {
             return(
                 <div>
-                    <AuthPopup />
+                    <AuthPopup closeEvent = {this.exit}/>
                     <a className = "auth auth-done" onClick = {this.exit} href = "#">Выход</a>
                 </div>
             )

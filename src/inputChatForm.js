@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Chat from './chatSection.js';
 
 class InputChatForm extends Component {
     constructor(props) {
@@ -12,7 +11,7 @@ class InputChatForm extends Component {
         let messageInput = document.getElementsByClassName('chat__input')[0];
         let messageText = messageInput.value;
         messageInput.value = "";
-        if (messageText != "") {
+        if (messageText !== "") {
             let newMsg = {
                 messageId: this.props.newMessageId,
                 userId: "1",
@@ -26,7 +25,7 @@ class InputChatForm extends Component {
     }
 
     handleKeyPress(e) {
-        if(e.key == "Enter") {
+        if(e.key === "Enter") {
             e.preventDefault();
             this.createNewMessage();
         }

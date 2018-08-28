@@ -9,7 +9,7 @@ class Message extends Component {
 
     changeTheme() {
         let addedClass = "";
-        if(this.props.messageInfo.userId != '1') {
+        if(this.props.messageInfo.userId !== '1') {
             addedClass = "other_user-msg";
         }
         return addedClass;

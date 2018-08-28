@@ -27,6 +27,7 @@ class AuthPopup extends Component {
         this.setState({
             visibility: false
         });
+        this.props.closeEvent();
     }
 
     render() {

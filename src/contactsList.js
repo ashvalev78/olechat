@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Contact from './contact.js';
+import ContactPopup from './contactPopup.js';
 
 var contacts = [
     {
@@ -33,27 +34,47 @@ class ContactsList extends Component {
         super(props);
 
         this.initialState = {
-            contacts
+            contacts,
+            addContact: false
         };
         
 
         this.state = this.initialState;
-        this.addContact = this.addContact.bind(this);
         this.addContactClick = this.addContactClick.bind(this);
+        this.openContactPopup = this.openContactPopup.bind(this);
+        this.closeContactPopup = this.closeContactPopup.bind(this);
+        this.parsePopup = this.parsePopup.bind(this);
     }
 
-    addContact() {
+    addContactClick(e) {
+        e.preventDefault();
         let length = this.state.contacts.length;
+        let updatedContacts = this.state.contacts;
         let newContact = {
             id: length,
             name: "New",
             surname: "Contact"
         };
+
+        updatedContacts.push(newContact);
+        this.setState({
+            contacts: updatedContacts
+        });
     }
 
-    addContactClick(e) {
-        e.preventDefault();
-        this.addContact();
+    openContactPopup() {
+        this.setState({
+            addContact: true
+        })
+    }
+
+    closeContactPopup() {
+        this.setState({
+            addContact: false
+        })
+    }
+
+    parsePopup(newName, newSurname) {
         let length = this.state.contacts.length;
         let updatedContacts = this.state.contacts;
         let newContact = {
@@ -69,11 +90,25 @@ class ContactsList extends Component {
     }
 
     render() {
+        if (this.state.addContact) {
+            return(
+                <div className = "contacts">
+                    <h2 className = "contacts__heading">список контактов</h2>
+                    <GetContacts contacts = {this.state.contacts}/>
+                    <a onClick = {this.openContactPopup} className = "contact" href="#">
+                        <div className = 'contact__wrapper'>
+                            <div className = "contact__name">Новый контакт</div>
+                        </div>
+                    </a>
+                    <ContactPopup closePopup = {this.closeContactPopup} parsePopup = {this.parsePopup}/>
+                </div>
+            );
+        }
         return(
             <div className = "contacts">
-                <h2 onClick={this.update} className = "contacts__heading">список контактов</h2>
+                <h2 className = "contacts__heading">список контактов</h2>
                 <GetContacts contacts = {this.state.contacts}/>
-                <a onClick = {this.addContactClick} className = "contact" href="#">
+                <a onClick = {this.openContactPopup} className = "contact" href="#">
                     <div className = 'contact__wrapper'>
                         <div className = "contact__name">Новый контакт</div>
                     </div>

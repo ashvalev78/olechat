@@ -220,7 +220,7 @@
   color: white;
 }
 
-.popup {
+.popup, .contact__popup {
   position: fixed;
   z-index: 1;
   top: 50%;
@@ -234,15 +234,19 @@
   padding-top: 1rem;
 }
 
-.popup__heading {
+.popup__heading, .contact__popup-heading {
   margin-bottom: 2rem;
 }
 
-.popup-helper {
+.contact__popup-heading {
+  font-size: 1.25rem;
+}
+
+.popup-helper, .new__contact-help {
   margin-bottom: 0.5rem;
 }
 
-.popup__login, .popup__password {
+.popup__login, .popup__password, .new__contact-name, .new__contact-surname, .new__contact-userId {
   margin-bottom: 1rem;
   height: 2rem;
   width: 15rem;
