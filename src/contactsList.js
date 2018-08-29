@@ -20,15 +20,6 @@ var contacts = [
     }
 ];
 
-// function that takes our contacts from array and creates a list of react-components
-function GetContacts(props) {
-    return(
-        <div>
-            {props.contacts.map(c => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {c.id}/>)}
-        </div>
-    );
-}
-
 class ContactsList extends Component {
     constructor(props) {
         super(props);
@@ -74,13 +65,13 @@ class ContactsList extends Component {
         })
     }
 
-    parsePopup(newName, newSurname) {
+    parsePopup(newName, newSurname, newId) {
         let length = this.state.contacts.length;
         let updatedContacts = this.state.contacts;
         let newContact = {
-            id: length,
-            name: "New",
-            surname: "Contact"
+            id: newId,
+            name: newName,
+            surname: newSurname
         };
 
         updatedContacts.push(newContact);
@@ -94,7 +85,7 @@ class ContactsList extends Component {
             return(
                 <div className = "contacts">
                     <h2 className = "contacts__heading">список контактов</h2>
-                    <GetContacts contacts = {this.state.contacts}/>
+                    {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
                     <a onClick = {this.openContactPopup} className = "contact" href="#">
                         <div className = 'contact__wrapper'>
                             <div className = "contact__name">Новый контакт</div>
@@ -107,7 +98,7 @@ class ContactsList extends Component {
         return(
             <div className = "contacts">
                 <h2 className = "contacts__heading">список контактов</h2>
-                <GetContacts contacts = {this.state.contacts}/>
+                {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
                 <a onClick = {this.openContactPopup} className = "contact" href="#">
                     <div className = 'contact__wrapper'>
                         <div className = "contact__name">Новый контакт</div>

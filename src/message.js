@@ -15,10 +15,18 @@ class Message extends Component {
         return addedClass;
     }
 
+    componentDidMount() {
+        let elements = document.getElementsByClassName('chat__message');
+        let lastMsg = elements[elements.length - 1];
+
+        lastMsg.scrollIntoView();
+    }
+
     render() {
         return(
             <div className = {"chat__message" + " " + this.changeTheme()} >
                 <div className = "message__heading">
+                    <div className = "message__user-info">
                     <img className = "sender__photo" alt = "" />
                     <div className = "sender__name">
                     {
@@ -26,11 +34,12 @@ class Message extends Component {
                         " " + this.props.messageInfo.surname
                     }
                     </div>
+                    </div>
+                    <div className = "message__date">{this.props.messageInfo.date.toString()}</div>
                 </div>
                 <div className = "message__body">
                     <p className = "message__text">{this.props.messageInfo.text}</p>
                 </div>
-                <div className = "message__date">{this.props.messageInfo.date.toString()}</div>
             </div>
         );
     }

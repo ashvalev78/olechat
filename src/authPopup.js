@@ -40,6 +40,7 @@ class AuthPopup extends Component {
                         <input className = "popup__login" placeholder = "Login"/>
                         <div className = "popup-helper">Password</div>
                         <input className = "popup__password" placeholder = "Password" type = 'password'/>
+                        <button onClick = {this.closePopup} className = "popup__auth-button">Вход</button>
                     </form>
                     <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
                 </div>

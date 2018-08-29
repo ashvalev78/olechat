@@ -12,7 +12,8 @@ class ContactPopup extends Component {
         let surnameInput = document.getElementsByClassName('new__contact-surname')[0];
         let userIdInput = document.getElementsByClassName('new__contact-userId')[0];
 
-
+        this.props.parsePopup(nameInput.value, surnameInput.value, userIdInput.value);
+        this.props.closePopup();
     }
 
     render() {

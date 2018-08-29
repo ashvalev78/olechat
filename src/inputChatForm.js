@@ -12,13 +12,25 @@ class InputChatForm extends Component {
         let messageText = messageInput.value;
         messageInput.value = "";
         if (messageText !== "") {
+            let mdate = new Date();
+            let dd = mdate.getDate();
+            if (dd < 10) dd = '0' + dd;
+            let mm = mdate.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            let yy = mdate.getFullYear();
+            let th = mdate.getHours();
+            if (th < 10) th = '0' + th;
+            let tm = mdate.getMinutes();
+            if (tm < 10) tm = '0' + tm;
+            let ts = mdate.getSeconds();
+            if (ts < 10) ts = '0' + ts;
             let newMsg = {
                 messageId: this.props.newMessageId,
                 userId: "1",
                 name: "Unauthorized",
                 surname: "User",
                 text: messageText,
-                date: new Date()
+                date: dd + '/' + mm + '  ' + th + ':' + tm + ':' + ts
             };
             this.props.functionToAddNewMessage(newMsg);
         }
@@ -36,10 +48,8 @@ class InputChatForm extends Component {
             <div className = "form">
                 <textarea className = "chat__input" onKeyPress = {this.handleKeyPress}/>
                 <a className = "share__button" href = "#">
-                    <img className = "share__button-img" alt = ""/>
                 </a>
                 <a className = "submit__button" onClick = {this.createNewMessage} href = "#">
-                    <img className = "submit__button-img" alt = ""/>
                 </a>
             </div>
         );

@@ -4,6 +4,9 @@
 
 .App {
   text-align: center;
+  padding: 0 10% 0 10%;
+  background: url(images/global-bg.png) center ;
+  background-color: #E5DDD5;
 }
 
 .wrapper {
@@ -62,28 +65,25 @@
 .contacts__heading {
   text-transform: uppercase;
   font-family: 'Merriweather', serif;
-  background: #3aae64;
   color: white;
   font-size: 2rem;
 }
 
-.threads {
-  background: #2a75a5;
-  height: 100%;
-}
-
 .contacts {
   display: flex;
-  background: #3aae64;
+  background: linear-gradient(180deg, #029137, #54A733);
   height: 100%;
   flex-flow: column;
-  width: 31.25rem;
-  border-right: 1px solid #006699;
+  width: 20rem;
   overflow-y: scroll;
+  overflow-x: none;
 }
 
 .threads {
-  width: 21.875rem;
+  width: 20rem;
+  background: linear-gradient(180deg, #005991, #0092DC);
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .chat {
@@ -93,24 +93,37 @@
 }
 
 .contact, .group {
+  position: relative;
   font-family: 'Merriweather', serif;
   display: flex;
   align-items: center;
   height: 4rem;
-  border-bottom: 1px solid #b7e5df;
   color: #b7e5df;
+  border-radius: 10px;
 }
+
+.contact::after, .group::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: 70%;
+  left: 1rem;
+  height: 0.125rem;
+  border-radius: 0.0625rem;
+  background: #6fc08c;
+}
+
 
 .contact__wrapper {
   display: flex;
   align-items: center;
-  margin-left: 5rem;
+  margin-left: 2rem;
 }
 
 .contact__name {
   color: #b7e5df;
   font-size: 1.5rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .contact:hover {
@@ -163,7 +176,7 @@
 .form {
   display: flex;
   align-self: flex-end;
-  height: 10rem;
+  height: 7rem;
   width: 100%;
   align-items: center;
   background-color: #afe4d1;
@@ -172,25 +185,35 @@
 }
 
 .chat__input {
+  margin-left: 0.5rem;
   height: 5rem;
+  padding-left: 0.25rem;
   background-color: #ccf3eb;
-  width: 50rem;
+  width: 40rem;
   border-radius: 10px;
   resize: none;
+  font-size: 1.25rem;
 }
 
 .chat__input:focus {
   background: white;
+  outline: none;
 }
 
 .share__button, .submit__button {
-  width: 50px;
-  height: 50px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
 }
 
 .share__button {
-  background-color: green;
+  background: url(images/upload.svg) center no-repeat;
+  border-radius: 5px;
+}
+
+.share__button:hover {
+  background-color: #6FC08C;
+  transition: 0.5s;
 }
 
 .submit__button {
@@ -242,6 +265,30 @@
   font-size: 1.25rem;
 }
 
+.popup__form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__auth-button {
+  margin-top: 2rem;
+  width: 8rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a75a5;
+  color: white;
+  border: 1px solid #005991;
+  border-radius: 5px;
+}
+
+.popup__auth-button:hover {
+  background-color: #005991;
+}
+
 .popup-helper, .new__contact-help {
   margin-bottom: 0.5rem;
 }
@@ -281,12 +328,14 @@
 }
 
 .chat__message {
-  width: 40rem;
+  width: auto;
+  min-width: 10rem;
+  max-width: 33rem;
   height: auto;
   border-radius: 10px;
   background: #9bddde;
-  padding: 2rem 1rem 2rem 1rem;
-  position: relative;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  /* position: relative; */
   font-family: 'Fira Sans', sans-serif;
   margin-top: 2rem;
   align-self: flex-end;
@@ -304,19 +353,24 @@
 }
 
 .message__heading {
-  position: absolute;
   width: 100%;
-  top: 0.5rem;
-  left: 0.5rem;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 .sender__name {
   color: #005991;
+  margin-right: 0.5rem;
 }
 
 .message__body {
   width: 100%;
+  display: flex;
+}
+
+.message__user-info {
   display: flex;
 }
 
@@ -327,10 +381,49 @@
 }
 
 .message__date {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  left: 0.5rem;
-  bottom: 0.5rem;
+  align-self: flex-end;
   font-size: 0.75rem;
+}
+
+.search {
+  padding: 1rem;
+  width: 95%;
+  height: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search__icon {
+  width: 2rem;
+  height: 2rem;
+  background: url(images/magnifier-tool.svg) center no-repeat;
+  background-color: #99e7c4;
+  border-radius: 0 5px 5px 0;
+}
+
+.search__input {
+  background-color: #99e7c4;
+  color: #005991;
+  font-family: 'Fira Sans', sans-serif;
+  border-radius: 5px 0 0 5px;
+}
+
+.hide {
+  width: 0;
+  transition: 0.5s;
+}
+
+.show {
+  width: 94%;
+  padding-left: 0.25rem;
+  transition: 0.5s;
+}
+
+.search__icon:hover {
+  background-color: #6fc08c;
+}
+
+.search__input:focus {
+  background-color: white;
+  outline: none;
 }

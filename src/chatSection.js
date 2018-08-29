@@ -1,11 +1,25 @@
 import React, {Component} from 'react';
 import InputChatForm from './inputChatForm.js';
 import ChatMessagesSection from './chatMessagesSection.js';
+import Search from './search.js';
 
 class Chat extends Component {
     constructor(props) {
         super(props);
 
+        let mdate = new Date();
+            let dd = mdate.getDate();
+            if (dd < 10) dd = '0' + dd;
+            let mm = mdate.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            let yy = mdate.getFullYear();
+            let th = mdate.getHours();
+            if (th < 10) th = '0' + th;
+            let tm = mdate.getMinutes();
+            if (tm < 10) tm = '0' + tm;
+            let ts = mdate.getSeconds();
+            if (ts < 10) ts = '0' + ts;
+        
         this.initialState = {
             // messages array is created to transfer messages from input component to chat section
             messages: [
@@ -14,8 +28,8 @@ class Chat extends Component {
                     userId: "0",
                     name: "Oksana",
                     surname: "Robskih",
-                    text: "lalalallalaalalalalalalalala",
-                    date: new Date()
+                    text: "lalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalala",
+                    date: dd + '/' + mm + '  ' + th + ':' + tm + ':' + ts
                 },
                 {
                     messageId: "1",
@@ -23,7 +37,7 @@ class Chat extends Component {
                     name: "Oksana",
                     surname: "Robskih",
                     text: "kokokokokokokokokokoko",
-                    date: new Date()
+                    date: dd + '/' + mm + '.' + '  ' + th + ':' + tm + ':' + ts
                 }
             ]
         };
@@ -40,7 +54,7 @@ class Chat extends Component {
         this.setState({
             messages: messageArray
         });
-        console.log(this.state.messages);
+        // console.log(this.state.messages);
     }
 
     // function which generates new id for the next message, based on the previous messages
@@ -51,6 +65,7 @@ class Chat extends Component {
     render() {
         return(
             <div className = "chat">
+                <Search />
                 <ChatMessagesSection messagesArray = {this.state.messages}/>
                 <InputChatForm functionToAddNewMessage = {this.changeState} newMessageId = {this.setNewMessageId()}/>
             </div>

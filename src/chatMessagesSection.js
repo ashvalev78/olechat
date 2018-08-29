@@ -11,6 +11,7 @@ class ChatMessagesSection extends Component {
 
         this.state = this.initialState;
     }
+
     render() {
         return(
             <div className = "messages">

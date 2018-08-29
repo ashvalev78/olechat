@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 
 var groupsList = [
     {
-        name: "Giant"
+        name: "Китайцы"
     },
     {
-        name: "Against"
+        name: "Русские"
     },
     {
-        name: "Goliath"
+        name: "Американцы"
     }
 ];
 
@@ -33,7 +33,7 @@ class GroupList extends Component {
     render() {
         return(
             <div className = "groups__list">
-                <h2 className = "groups__heading">группы</h2>
+                <h2 className = "groups__heading">беседы</h2>
                 {GetGroupsList()} 
             </div>
         );
