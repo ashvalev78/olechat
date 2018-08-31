@@ -76,7 +76,6 @@
   flex-flow: column;
   width: 20rem;
   overflow-y: scroll;
-  overflow-x: none;
 }
 
 .threads {
@@ -93,6 +92,7 @@
 }
 
 .contact, .group {
+  margin-top: 0.5rem;
   position: relative;
   font-family: 'Merriweather', serif;
   display: flex;
