@@ -117,12 +117,12 @@
 .contact__wrapper {
   display: flex;
   align-items: center;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .contact__name {
   color: #b7e5df;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-left: 0.5rem;
 }
 
@@ -293,7 +293,7 @@
   margin-bottom: 0.5rem;
 }
 
-.popup__login, .popup__password, .new__contact-name, .new__contact-surname, .new__contact-userId {
+.popup__login, .popup__call-num, .popup__status, .new__contact-name, .new__contact-surname, .new__contact-userId {
   margin-bottom: 1rem;
   height: 2rem;
   width: 15rem;

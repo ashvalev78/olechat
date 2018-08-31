@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import auth_OutgoingCall from './authAPI.js';
 
 class AuthPopup extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class AuthPopup extends Component {
         this.state = this.initialState;
         this.showPopup = this.showPopup.bind(this);
         this.closePopup = this.closePopup.bind(this);
+        this.auth = this.auth.bind(this);
     } 
 
     showPopup(props) {
@@ -21,6 +23,10 @@ class AuthPopup extends Component {
                 visibility: true
             });
         }
+    }
+
+    auth() {
+        
     }
 
     closePopup() {
@@ -36,11 +42,13 @@ class AuthPopup extends Component {
                 <div className = 'popup'>
                     <h2 className = "popup__heading">Авторизация</h2>
                     <form className = "popup__form">
-                        <div className = "popup-helper">Login</div>
-                        <input className = "popup__login" placeholder = "Login"/>
-                        <div className = "popup-helper">Password</div>
-                        <input className = "popup__password" placeholder = "Password" type = 'password'/>
-                        <button onClick = {this.closePopup} className = "popup__auth-button">Вход</button>
+                        <div className = "popup-helper">Ваш номер</div>
+                        <input className = "popup__login" placeholder = "Номер" required/>
+                        <div className = "popup-helper">Телефон для звонка</div>
+                        <div className = "popup__call-num"></div>
+                        <div className = "popup-helper">Статус запроса</div>
+                        <div className = "popup__status"></div>
+                        <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Вход</button>
                     </form>
                     <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
                 </div>

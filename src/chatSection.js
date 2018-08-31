@@ -26,16 +26,16 @@ class Chat extends Component {
                 {
                     messageId: "0",
                     userId: "0",
-                    name: "Oksana",
-                    surname: "Robskih",
+                    name: "Наемная",
+                    surname: "уборщица",
                     text: "lalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalala",
                     date: dd + '/' + mm + '  ' + th + ':' + tm + ':' + ts
                 },
                 {
                     messageId: "1",
                     userId: "0",
-                    name: "Oksana",
-                    surname: "Robskih",
+                    name: "Наемная",
+                    surname: "уборщица",
                     text: "kokokokokokokokokokoko",
                     date: dd + '/' + mm + '.' + '  ' + th + ':' + tm + ':' + ts
                 }

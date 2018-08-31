@@ -5,6 +5,44 @@ class Message extends Component {
         super(props);
 
         this.changeTheme = this.changeTheme.bind(this);
+        this.playSound = this.playSound.bind(this);
+    }
+
+    playSound() {
+
+        let audio = document.getElementById('sound');
+        let hidden = "hidden";
+
+        // Standards:
+        if (hidden in document)
+            document.addEventListener("visibilitychange", onchange);
+        else if ((hidden = "mozHidden") in document)
+            document.addEventListener("mozvisibilitychange", onchange);
+        else if ((hidden = "webkitHidden") in document)
+            document.addEventListener("webkitvisibilitychange", onchange);
+        else if ((hidden = "msHidden") in document)
+            document.addEventListener("msvisibilitychange", onchange);
+        // IE 9 and lower:
+        else if ("onfocusin" in document)
+            document.onfocusin = document.onfocusout = onchange;
+        // All others:
+        else
+            window.onpageshow = window.onpagehide
+            = window.onfocus = window.onblur = onchange;
+
+        function onchange (evt) {
+            var v = "visible", h = "hidden",
+                evtMap = {
+                    blur:h, focusout:h, pagehide:h
+                };
+
+            evt = evt || window.event;
+            if (evt.type in evtMap)
+                audio.play();
+        }
+            
+        if( document[hidden] !== undefined )
+            onchange({type: document[hidden] ? "blur" : "focus"});
     }
 
     changeTheme() {
@@ -18,7 +56,7 @@ class Message extends Component {
     componentDidMount() {
         let elements = document.getElementsByClassName('chat__message');
         let lastMsg = elements[elements.length - 1];
-
+        this.playSound();
         lastMsg.scrollIntoView();
     }
 

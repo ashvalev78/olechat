@@ -5,8 +5,8 @@ import ContactPopup from './contactPopup.js';
 var contacts = [
     {
         id: 0,
-        name: 'Oksana',
-        surname: 'Robskih'
+        name: 'Наемная',
+        surname: 'уборщица'
     },
     {
         id: 1,
@@ -85,12 +85,14 @@ class ContactsList extends Component {
             return(
                 <div className = "contacts">
                     <h2 className = "contacts__heading">список контактов</h2>
-                    {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
-                    <a onClick = {this.openContactPopup} className = "contact" href="#">
-                        <div className = 'contact__wrapper'>
-                            <div className = "contact__name">Новый контакт</div>
-                        </div>
-                    </a>
+                    <div className = "contacts__section">
+                        {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
+                        <a onClick = {this.openContactPopup} className = "contact" href="#">
+                            <div className = 'contact__wrapper'>
+                                <div className = "contact__name">Новый контакт</div>
+                            </div>
+                        </a>
+                    </div>
                     <ContactPopup closePopup = {this.closeContactPopup} parsePopup = {this.parsePopup}/>
                 </div>
             );
@@ -98,12 +100,14 @@ class ContactsList extends Component {
         return(
             <div className = "contacts">
                 <h2 className = "contacts__heading">список контактов</h2>
-                {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
-                <a onClick = {this.openContactPopup} className = "contact" href="#">
-                    <div className = 'contact__wrapper'>
-                        <div className = "contact__name">Новый контакт</div>
-                    </div>
-                </a>
+                <div className = "contacts__section">
+                    {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
+                    <a onClick = {this.openContactPopup} className = "contact" href="#">
+                        <div className = 'contact__wrapper'>
+                            <div className = "contact__name">Новый контакт</div>
+                        </div>
+                    </a>
+                </div>
             </div>
         );
     }
