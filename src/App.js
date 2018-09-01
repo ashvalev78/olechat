@@ -13,7 +13,8 @@ class App extends Component {
         <div className="wrapper">
           <div className = "header">
             <Authorization />
-            <h1 className = "chatname">yumichat</h1>
+            <h1 className = "chatname">urf booking system</h1>
+            <a className = "frigate" href = "#"></a>
             <a className = "site__back" href = "#">
               <div className = "site__back-title">На сайт</div>
               <div className = "site__back-icon"></div>

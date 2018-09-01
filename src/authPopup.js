@@ -6,7 +6,8 @@ class AuthPopup extends Component {
         super(props);
 
         this.initialState = {
-            visibility: true
+            visibility: true,
+            regNeed: false
         };
 
         this.state = this.initialState;
@@ -26,7 +27,7 @@ class AuthPopup extends Component {
     }
 
     auth() {
-        
+
     }
 
     closePopup() {
@@ -38,21 +39,42 @@ class AuthPopup extends Component {
 
     render() {
         if (this.state.visibility) {
-            return(
-                <div className = 'popup'>
-                    <h2 className = "popup__heading">Авторизация</h2>
-                    <form className = "popup__form">
-                        <div className = "popup-helper">Ваш номер</div>
-                        <input className = "popup__login" placeholder = "Номер" required/>
-                        <div className = "popup-helper">Телефон для звонка</div>
-                        <div className = "popup__call-num"></div>
-                        <div className = "popup-helper">Статус запроса</div>
-                        <div className = "popup__status"></div>
-                        <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Вход</button>
-                    </form>
-                    <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
-                </div>
-            );
+            if (this.state.regNeed) {
+                return(
+                    <div className = 'popup popup__modified'>
+                        <h2 className = "popup__heading">Авторизация</h2>
+                        <form className = "popup__form">
+                            <div className = "popup-helper">Ваш номер</div>
+                            <input className = "popup__login" placeholder = "Номер" required/>
+                            <div className = "popup-helper">Телефон для звонка</div>
+                            <div className = "popup__call-num"></div>
+                            <div className = "popup-helper">Статус запроса</div>
+                            <div className = "popup__status"></div>
+                            <input className = "popup__name" placeholder = "Имя" required />
+                            <input className = "popup__surname" placeholder = "Фамилия" required />
+                            <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Зарегистрироваться</button>
+                        </form>
+                        <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
+                    </div>
+                );
+            } 
+            else {
+                return(
+                    <div className = 'popup'>
+                        <h2 className = "popup__heading">Авторизация</h2>
+                        <form className = "popup__form">
+                            <div className = "popup-helper">Ваш номер</div>
+                            <input className = "popup__login" placeholder = "Номер" required/>
+                            <div className = "popup-helper">Телефон для звонка</div>
+                            <div className = "popup__call-num"></div>
+                            <div className = "popup-helper">Статус запроса</div>
+                            <div className = "popup__status"></div>
+                            <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Вход</button>
+                        </form>
+                        <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
+                    </div>
+                );
+            }
         } else {
             return(
                 <div></div>

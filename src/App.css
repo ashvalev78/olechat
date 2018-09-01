@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
 @import url(https://fonts.googleapis.com/css?family=Merriweather);
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:500);
+@import url(https://fonts.googleapis.com/css?family=Anton);
 
 .App {
   text-align: center;
@@ -15,9 +15,27 @@
   height: 100vh;
 }
 
+.frigate {
+  position: absolute;
+  right: 15rem;
+  width: 3rem;
+  height: 3rem;
+  background: url(./images/friGate.png) center;
+  background-size: cover;
+  background-color: #008ED7;
+  border: 1px solid #2A75A5;
+  border-radius: 5px;
+}
+
+.frigate:hover {
+  background-color: inherit;
+  border: 0;
+  transition: 0.5s;
+}
+
 .header {
   width: 100%;
-  height: 7.5rem;
+  height: 6rem;
   background: url(./images/header.png) no-repeat;
   background-size: cover;
   display: flex;
@@ -36,7 +54,7 @@
   font-size: 2rem;
   color: white;
   text-transform: uppercase;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Anton', sans-serif;
 }
 
 .site__back-icon {
@@ -52,9 +70,9 @@
   display: flex;
   align-self: center;
   text-transform: uppercase;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Anton', sans-serif;
   position: absolute;
-  left: 20%;
+  left: 25%;
 }
 
 .main__section {
@@ -230,7 +248,7 @@
   color: #B7E5DF;
   font-size: 1.5rem;
   font-family: 'Merriweather', serif;
-  margin-left: 10px;
+  margin-left: 4%;
   background-color: #3AAE64;
   border: 1px solid #3DA134;
   border-radius: 5px;
@@ -252,9 +270,19 @@
   transform: translate(-50%, -50%);
   background-color: rgba(111, 155, 45, 0.6);
   width: 20rem;
-  height: 20rem;
+  height: 22rem;
   border-radius: 15px;
   padding-top: 1rem;
+}
+
+.popup__modified {
+  height: 30rem;
+}
+
+.contact__form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .popup__heading, .contact__popup-heading {
@@ -272,8 +300,8 @@
   align-items: center;
 }
 
-.popup__auth-button {
-  margin-top: 2rem;
+.popup__auth-button, .add__contact-button {
+  margin-top: 0.5rem;
   width: 8rem;
   height: 2rem;
   display: flex;
@@ -293,7 +321,7 @@
   margin-bottom: 0.5rem;
 }
 
-.popup__login, .popup__call-num, .popup__status, .new__contact-name, .new__contact-surname, .new__contact-userId {
+.popup__login, .popup__name, .popup__surname, .popup__call-num, .popup__status, .new__contact-name, .new__contact-surname, .new__contact-userId {
   margin-bottom: 1rem;
   height: 2rem;
   width: 15rem;
