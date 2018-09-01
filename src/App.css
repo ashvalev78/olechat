@@ -22,7 +22,7 @@
   height: 3rem;
   background: url(./images/friGate.png) center;
   background-size: cover;
-  background-color: #008ED7;
+  background-color: #0077B9;
   border: 1px solid #2A75A5;
   border-radius: 5px;
 }
@@ -45,7 +45,7 @@
 
 .site__back {
   position: absolute;
-  right: 50px;
+  left: 50px;
   display: flex;
   align-items: center;
 }
@@ -72,7 +72,7 @@
   text-transform: uppercase;
   font-family: 'Anton', sans-serif;
   position: absolute;
-  left: 25%;
+  left: 53%;
 }
 
 .main__section {
@@ -120,6 +120,21 @@
   border-radius: 10px;
 }
 
+.user__contact {
+  font-family: 'Merriweather', serif;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  position: absolute;
+  left: 20%;
+  background-color: #0077B9;
+  border: 1px solid #2A75A5;
+  border-radius: 10px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .contact::after, .group::after {
   position: absolute;
   bottom: 0;
@@ -131,17 +146,24 @@
   background: #6fc08c;
 }
 
-
 .contact__wrapper {
   display: flex;
-  align-items: center;
+  flex-flow: column;
   margin-left: 1rem;
+}
+
+.contact__info {
+  display: flex;
 }
 
 .contact__name {
   color: #b7e5df;
   font-size: 1.25rem;
   margin-left: 0.5rem;
+}
+
+.user__name {
+  font-size: 1.5rem;
 }
 
 .contact:hover {
@@ -155,6 +177,11 @@
   height: 2rem;
   background: #c9f2e8;
   border-radius: 50%;
+}
+
+.contact__phone {
+  display: flex;
+  color: #b7e5df;
 }
 
 .group {
@@ -246,17 +273,19 @@
 
 .auth {
   color: #B7E5DF;
+  position: absolute;
   font-size: 1.5rem;
+  right: 3rem;
   font-family: 'Merriweather', serif;
-  margin-left: 4%;
-  background-color: #3AAE64;
-  border: 1px solid #3DA134;
+  background-color: #0077B9;
+  border: 1px solid #2A75A5;
   border-radius: 5px;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 .auth:hover {
-  background-color: #6FC08C;
+  background-color: inherit;
+  border: none;
   transition: 0.5s;
   color: white;
 }
@@ -276,7 +305,13 @@
 }
 
 .popup__modified {
-  height: 30rem;
+  height: 35rem;
+}
+
+.popup__buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .contact__form {
@@ -313,8 +348,18 @@
   border-radius: 5px;
 }
 
+.popup__anon-button {
+  background-color: #029137;
+}
+
 .popup__auth-button:hover {
   background-color: #005991;
+  transition: 0.5s;
+}
+
+.popup__anon-button:hover {
+  background-color: #349E34;
+  transition: 0.5s;
 }
 
 .popup-helper, .new__contact-help {

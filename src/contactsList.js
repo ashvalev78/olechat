@@ -6,17 +6,20 @@ var contacts = [
     {
         id: 0,
         name: 'Наемная',
-        surname: 'уборщица'
+        surname: 'уборщица',
+        phone: "+17239816326"
     },
     {
         id: 1,
         name: 'Fedya',
-        surname: 'Pupkin'
+        surname: 'Pupkin',
+        phone: '+7987654321'
     },
     {
         id: 2,
         name: 'Robin',
-        surname: 'Bobin'
+        surname: 'Bobin',
+        phone: '+735263513'
     }
 ];
 
@@ -56,13 +59,13 @@ class ContactsList extends Component {
     openContactPopup() {
         this.setState({
             addContact: true
-        })
+        });
     }
 
     closeContactPopup() {
         this.setState({
             addContact: false
-        })
+        });
     }
 
     parsePopup(newName, newSurname, newId) {
@@ -86,7 +89,7 @@ class ContactsList extends Component {
                 <div className = "contacts">
                     <h2 className = "contacts__heading">список контактов</h2>
                     <div className = "contacts__section">
-                        {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
+                        {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} phone = {c.phone} key = {index}/>)}
                         <a onClick = {this.openContactPopup} className = "contact" href="#">
                             <div className = 'contact__wrapper'>
                                 <div className = "contact__name">Новый контакт</div>
@@ -101,7 +104,7 @@ class ContactsList extends Component {
             <div className = "contacts">
                 <h2 className = "contacts__heading">список контактов</h2>
                 <div className = "contacts__section">
-                    {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} key = {index}/>)}
+                    {this.state.contacts.map((c, index) => <Contact className = 'contact' name = {c.name} surname = {c.surname} phone = {c.phone} key = {index}/>)}
                     <a onClick = {this.openContactPopup} className = "contact" href="#">
                         <div className = 'contact__wrapper'>
                             <div className = "contact__name">Новый контакт</div>

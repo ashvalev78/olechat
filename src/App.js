@@ -13,6 +13,10 @@ class App extends Component {
         <div className="wrapper">
           <div className = "header">
             <Authorization />
+            <div className = "user__contact">
+              <img className = "contact__avatar" alt = ""/>
+              <div className = "contact__name user__name">Unauthorized User</div>
+            </div>
             <h1 className = "chatname">urf booking system</h1>
             <a className = "frigate" href = "#"></a>
             <a className = "site__back" href = "#">

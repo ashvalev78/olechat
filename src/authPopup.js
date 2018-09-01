@@ -39,7 +39,7 @@ class AuthPopup extends Component {
 
     render() {
         if (this.state.visibility) {
-            if (this.state.regNeed) {
+            if (!this.state.regNeed) {
                 return(
                     <div className = 'popup popup__modified'>
                         <h2 className = "popup__heading">Авторизация</h2>
@@ -50,9 +50,13 @@ class AuthPopup extends Component {
                             <div className = "popup__call-num"></div>
                             <div className = "popup-helper">Статус запроса</div>
                             <div className = "popup__status"></div>
-                            <input className = "popup__name" placeholder = "Имя" required />
-                            <input className = "popup__surname" placeholder = "Фамилия" required />
-                            <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Зарегистрироваться</button>
+                            <div className = "popup-helper">Вы не зарегистрированы, пожалуйста, введите свои имя, фамилию</div>
+                            <input className = "popup__name" placeholder = "Имя" />
+                            <input className = "popup__surname" placeholder = "Фамилия" />
+                            <div className = "popup__buttons">
+                                <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Зарегистрироваться</button>
+                                <button onClick = {auth_OutgoingCall} className = "popup__auth-button popup__anon-button">Остаться анонимным</button>
+                            </div>
                         </form>
                         <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
                     </div>
