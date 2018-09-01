@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import auth_OutgoingCall from './authAPI.js';
+import ContactsList from './contactsList.js';
 
 class AuthPopup extends Component {
     constructor(props) {
@@ -26,8 +27,11 @@ class AuthPopup extends Component {
         }
     }
 
-    auth() {
-
+    auth(e) {
+        e.preventDefault();
+        // console.log(document.querySelector('.popup__login').value);
+        auth_OutgoingCall();
+        // this.closePopup();
     }
 
     closePopup() {
@@ -41,7 +45,7 @@ class AuthPopup extends Component {
         if (this.state.visibility) {
             if (!this.state.regNeed) {
                 return(
-                    <div className = 'popup popup__modified'>
+                    <div className = 'popup'>
                         <h2 className = "popup__heading">Авторизация</h2>
                         <form className = "popup__form">
                             <div className = "popup-helper">Ваш номер</div>
@@ -50,13 +54,23 @@ class AuthPopup extends Component {
                             <div className = "popup__call-num"></div>
                             <div className = "popup-helper">Статус запроса</div>
                             <div className = "popup__status"></div>
-                            <div className = "popup-helper">Вы не зарегистрированы, пожалуйста, введите свои имя, фамилию</div>
-                            <input className = "popup__name" placeholder = "Имя" />
-                            <input className = "popup__surname" placeholder = "Фамилия" />
-                            <div className = "popup__buttons">
-                                <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Зарегистрироваться</button>
-                                <button onClick = {auth_OutgoingCall} className = "popup__auth-button popup__anon-button">Остаться анонимным</button>
+                            <button onClick = {this.auth} className = "popup__auth-button popup__enter-button">Вход</button>
+                            <div className = "popup__register hide">
+                                <div className = "popup-helper">Вы не зарегистрированы, пожалуйста, введите свои имя, фамилию</div>
+                                <input className = "popup__name" placeholder = "Имя" />
+                                <input className = "popup__surname" placeholder = "Фамилия" />
+                                <div className = "popup__buttons">
+                                    <button onClick = {this.auth} className = "popup__auth-button">Зарегистрироваться</button>
+                                    <button onClick = {this.auth} className = "popup__auth-button popup__anon-button">Остаться анонимным</button>
+                                </div>
                             </div>
+                            <div className = "popup-helper">Запомнить:</div>
+                            <select className = "auth__limit">
+                                <option value = "day">На сутки</option>
+                                <option value = "hour">На час</option>
+                                <option value = "week">На неделю</option>
+                                <option value = "forever">Навсегда</option>
+                            </select>
                         </form>
                         <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
                     </div>
@@ -73,7 +87,13 @@ class AuthPopup extends Component {
                             <div className = "popup__call-num"></div>
                             <div className = "popup-helper">Статус запроса</div>
                             <div className = "popup__status"></div>
-                            <button onClick = {auth_OutgoingCall} className = "popup__auth-button">Вход</button>
+                            <div className = "popup-helper">Запомнить:</div>
+                            <select className = "auth__limit">
+                                <option value = "day">На сутки</option>
+                                <option value = "hour">На час</option>
+                                <option value = "week">На неделю</option>
+                                <option value = "forever">Навсегда</option>
+                            </select>
                         </form>
                         <a onClick = {this.closePopup} className = "popup-close" href = "#"></a>
                     </div>

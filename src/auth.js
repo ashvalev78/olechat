@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AuthPopup from './authPopup.js';
+import {API_Request} from './GJAPISDK.js';
 
 
 class Authorization extends Component {
@@ -9,7 +10,7 @@ class Authorization extends Component {
         
         this.initialState = {
             auth: false
-        }
+        };
 
         this.state = this.initialState;
         this.exit = this.exit.bind(this);
@@ -19,10 +20,12 @@ class Authorization extends Component {
     authCheck() {
         this.setState({
             auth: true
-        })
+        });
     }
 
     exit() {
+        let r = new API_Request('token.revoke');
+        r.submit({}, console.log);
         this.setState({
             auth: false
         });
@@ -30,15 +33,15 @@ class Authorization extends Component {
 
     render() {
 
-        if (!this.state.auth) {
+        if (this.state.auth) {
             return(
                 <a className = "auth no-auth" onClick = {this.authCheck} href = "#">Авторизация</a>
             );
         } else {
             return(
-                <div>
-                    <AuthPopup closeEvent = {this.exit}/>
+                <div className = "popup__auth-wrapper">
                     <a className = "auth auth-done" onClick = {this.exit} href = "#">Выход</a>
+                    <AuthPopup closeEvent = {this.exit}/>
                 </div>
             )
         }

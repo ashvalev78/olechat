@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 
 var groupsList = [
     {
-        name: "Китайцы"
+        name: "Тема1"
     },
     {
-        name: "Русские"
+        name: "Тема2"
     },
     {
-        name: "Американцы"
+        name: "Отличная тема"
     }
 ];
 

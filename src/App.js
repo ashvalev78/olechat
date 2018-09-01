@@ -4,7 +4,14 @@ import GroupList from './groupsList.js';
 import Chat from './chatSection.js';
 import Authorization from './auth.js';
 import AuthPopup from './authPopup.js';
+import {getCookie, setCookie, deleteCookie} from './cookies.js';
 import './App.css';
+
+// function addUserName() {
+//   if(getCookie('last_name') != undefined)
+//     return (getCookie('last_name') + getCookie('first_name'));
+//   else return 
+// }
 
 class App extends Component {
   render() {
@@ -15,7 +22,7 @@ class App extends Component {
             <Authorization />
             <div className = "user__contact">
               <img className = "contact__avatar" alt = ""/>
-              <div className = "contact__name user__name">Unauthorized User</div>
+              <div className = "contact__name user__name">{ }</div>
             </div>
             <h1 className = "chatname">urf booking system</h1>
             <a className = "frigate" href = "#"></a>

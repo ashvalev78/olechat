@@ -21,10 +21,10 @@ class ContactPopup extends Component {
             <div className = "contact__popup">
                 <h2 className = "contact__popup-heading">Создание контакта</h2>
                 <form className = "contact__form">
-                    <div className = "new__contact-help">Имя</div>
+                    {/* <div className = "new__contact-help">Имя</div>
                     <input className = "new__contact-name" required/>
                     <div className = "new__contact-help">Фамилия</div>
-                    <input className = "new__contact-surname" required/>
+                    <input className = "new__contact-surname" required/> */}
                     <div className = "new__contact-help">Телефон</div>
                     <input className = "new__contact-userId" required/>
                     <button className = "add__contact-button" onClick = {this.getValues}>Добавить контакт</button>

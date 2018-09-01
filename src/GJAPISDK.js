@@ -15,11 +15,15 @@ class API_Request {
 	constructor(query)
 	{
 		this.geturl = API_URL+'?query='+encodeURIComponent(query);
+		// this.authPreCallback = () => {
+		// 	console.log('fucker');
+		// 	document.querySelector('.no-auth').click();
+		// };
 	}
 	
 	// setApiURL(url)
 	// {
-	// 	this.geturl = url+'?query='+encodeURIComponent(query);
+	// 	this.geturl = url+'?query='+encodeURIComponent(query)
 	// }
 	
 	setParams(params)
@@ -36,15 +40,21 @@ class API_Request {
 		console.log(url);
 					
 		xhr.open('GET', url, true);
+		xhr.withCredentials = true;
 		
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState != 4) return;
 			
-			if(xhr.status != 202)
+			if(xhr.status == 203)
 			{
-				console.log('network error, retrying...(false)');
+				if(this.authCallback)this.authCallback();
+			}
+			else if(xhr.status != 202)
+			{
+				console.log('network error');
 				console.log('response body: ');
-				setTimeout(this.submit, 1000, func_after_success,  func_after_error);
+				console.log(xhr.responseText);
+				//setTimeout(this.submit, 1000, func_after_success,  func_after_error);
 			}
 			else
 			{
@@ -70,14 +80,3 @@ class API_Request {
 }
 
 export {access_token, API_setGlobalAccessToken, API_setGlobalRequestUrl, API_Request};
-
-// function API_query_outgoingCall_authorize(user_phone_number,
-// 	afterNumberAssignedCallback,
-// 	afterTokenAssignedCallback)
-// {
-	
-
-	
-	
-// 	return responseData.secret_item;
-// }

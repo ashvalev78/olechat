@@ -64,8 +64,12 @@
   background-image: url(./images/arrow_right.svg);
 }
 
+.hide {
+  display: none;
+}
+
 .chatname {
-  size: 2rem;
+  font-size: 2rem;
   color: white;
   display: flex;
   align-self: center;
@@ -121,7 +125,6 @@
 }
 
 .user__contact {
-  font-family: 'Merriweather', serif;
   height: 4rem;
   display: flex;
   align-items: center;
@@ -164,6 +167,7 @@
 
 .user__name {
   font-size: 1.5rem;
+  color: white;
 }
 
 .contact:hover {
@@ -180,6 +184,7 @@
 }
 
 .contact__phone {
+  margin-left: 2rem;
   display: flex;
   color: #b7e5df;
 }
@@ -283,6 +288,16 @@
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
+.popup__auth-wrapper {
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+}
+
+.auth-done {
+  position: none;
+}
+
 .auth:hover {
   background-color: inherit;
   border: none;
@@ -299,7 +314,7 @@
   transform: translate(-50%, -50%);
   background-color: rgba(111, 155, 45, 0.6);
   width: 20rem;
-  height: 22rem;
+  height: 25rem;
   border-radius: 15px;
   padding-top: 1rem;
 }
@@ -333,6 +348,12 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
+}
+
+.auth__limit {
+  width: 5rem;
+  height: 1rem;
+  border-radius: 5px;
 }
 
 .popup__auth-button, .add__contact-button {

@@ -68,11 +68,11 @@ class ContactsList extends Component {
         });
     }
 
-    parsePopup(newName, newSurname, newId) {
+    parsePopup(newName, newSurname, phone) {
         let length = this.state.contacts.length;
         let updatedContacts = this.state.contacts;
         let newContact = {
-            id: newId,
+            phone: phone,
             name: newName,
             surname: newSurname
         };

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {getCookie, setCookie, deleteCookie} from './cookies.js';
+
 
 class InputChatForm extends Component {
     constructor(props) {
@@ -24,11 +26,18 @@ class InputChatForm extends Component {
             if (tm < 10) tm = '0' + tm;
             let ts = mdate.getSeconds();
             if (ts < 10) ts = '0' + ts;
+            let lastname, firstname;
+            if (getCookie('last_name'))
+                lastname = getCookie('last_name');
+            else lastname = 'Anauthorized';
+            if (getCookie('first_name'))
+                firstname = getCookie('first_name');
+            else firstname = 'User';
             let newMsg = {
                 messageId: this.props.newMessageId,
                 userId: "1",
-                name: "Unauthorized",
-                surname: "User",
+                name: lastname,
+                surname: firstname,
                 text: messageText,
                 date: dd + '/' + mm + '  ' + th + ':' + tm + ':' + ts
             };

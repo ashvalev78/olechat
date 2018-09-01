@@ -28,7 +28,7 @@ class Chat extends Component {
                     userId: "0",
                     name: "Наемная",
                     surname: "уборщица",
-                    text: "lalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalalalalalallalaalalalalalalalala",
+                    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
                     date: dd + '/' + mm + '  ' + th + ':' + tm + ':' + ts
                 },
                 {
@@ -36,7 +36,7 @@ class Chat extends Component {
                     userId: "0",
                     name: "Наемная",
                     surname: "уборщица",
-                    text: "kokokokokokokokokokoko",
+                    text: "blandit vel, luctus pulvinar, hendrerit id",
                     date: dd + '/' + mm + '.' + '  ' + th + ':' + tm + ':' + ts
                 }
             ]
