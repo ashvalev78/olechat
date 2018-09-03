@@ -9,6 +9,10 @@
   background-color: #E5DDD5;
 }
 
+body {
+  height: 100vh;
+}
+
 .wrapper {
   display: flex;
   flex-flow: column;
@@ -77,11 +81,13 @@
   font-family: 'Anton', sans-serif;
   position: absolute;
   left: 53%;
+  bottom: 0.5rem;
 }
 
 .main__section {
   flex: 1;
   display: flex;
+  max-height: 92%;
 }
 
 .contacts__heading {

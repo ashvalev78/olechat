@@ -5,7 +5,7 @@ import ContactPopup from './contactPopup.js';
 var contacts = [
     {
         id: 0,
-        name: 'Наемная',
+        name: '',
         surname: 'уборщица',
         phone: "+17239816326"
     },

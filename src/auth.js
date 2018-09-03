@@ -19,16 +19,16 @@ class Authorization extends Component {
 
     authCheck() {
         this.setState({
-            auth: true
+            auth: false
         });
     }
 
     exit() {
+        this.setState({
+            auth: true
+        });
         let r = new API_Request('token.revoke');
         r.submit({}, console.log);
-        this.setState({
-            auth: false
-        });
     }
 
     render() {
